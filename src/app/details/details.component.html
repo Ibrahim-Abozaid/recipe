@@ -1,0 +1,59 @@
+<section class="bg-[#F4F2EE] px-[15px]">
+  <div class="p-4 sm:ml-64">
+    <h1
+      class="mt-6 font-[Pacifico] text-4xl font-bold leading-10 text-transparent bg-gradient-to-r from-yellow-400 via-red-600 to-purple-500 bg-clip-text"
+    >
+      {{ mealData["strMeal"] }}
+    </h1>
+    <div
+      class="grid lg:grid-cols-3 gap-x-[15px] mb-4 mt-8 gap-y-[40px] items-start"
+    >
+      <div>
+        <img [src]="mealData['strMealThumb']" class="w-full rounded-2xl" />
+        <ul class="mt-7 flex gap-4 justify-center">
+          <li class="bg-red-600 text-white py-2 px-4 rounded-lg">
+            <a
+              target="_blank"
+              [href]="mealData['strYoutube']"
+              class="flex gap-2 justify-center items-center"
+            >
+              <i class="fa-brands fa-youtube"></i> youtube
+            </a>
+          </li>
+          <li class="bg-green-600 text-white py-2 px-4 rounded-lg">
+            <a
+              target="_blank"
+              [href]="mealData['strYoutube']"
+              class="flex gap-2 justify-center items-center"
+            >
+              <i class="fa-solid fa-globe"></i>source
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[16px] font-medium">{{ mealData["strInstructions"] }}</p>
+      </div>
+      <div class="bg-white rounded-3xl px-4 py-5">
+        <h2 class="ml-2 text-[25px] font-bold border-b-4 border-b-slate-500">
+          Ingredients
+        </h2>
+        <ul>
+          @for(item of items; track $index){
+
+          <li
+            class="text-[20px] border-b-2 border-b-slate-400 flex flex-wrap justify-between"
+          >
+            <span class="block">
+              {{ mealData["strIngredient" + ($index + 1)] }}</span
+            >
+            <span class="block">
+              {{ mealData["strMeasure" + ($index + 1)] }}</span
+            >
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
